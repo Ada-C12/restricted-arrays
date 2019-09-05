@@ -9,14 +9,25 @@ require_relative 'restricted_array.rb'
 # Time complexity: ?
 # Space complexity: ?
 def length(array)
-  raise NotImplementedError
+  #if array != []
+  counter = 0
+  i = 0
+  until array[i] == nil
+    i += 1
+    counter += 1 
+  end
+  return counter 
 end
 
 # Prints each integer values in the array
 # Time complexity: ?
 # Space complexity: ?
 def print_array(array)
-  raise NotImplementedError
+  amount_loop = length(array)
+  amount_loop.times do |i|
+    puts "array : #{i}"
+  end 
+#raise NotImplementedError
 end
 
 # For an unsorted array, searches for 'value_to_find'.
@@ -24,7 +35,10 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  #times_looping = array.length
+
+
+  #raise NotImplementedError
 end
 
 # Finds and returns the largest integer value the array
