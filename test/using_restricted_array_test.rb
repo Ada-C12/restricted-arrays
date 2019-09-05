@@ -2,6 +2,9 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative '../lib/restricted_array'
 require_relative '../lib/using_restricted_array'
+require 'minitest/skip_dsl'
+
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 describe "restricted array" do
   it "length method" do
@@ -13,7 +16,7 @@ describe "restricted array" do
     my_integer_array_length.must_equal size
   end
 
-  it "linear search method - value exists in the middle, in the array" do
+  xit "linear search method - value exists in the middle, in the array" do
     size = 9
     my_integer_array = RestrictedArray.new(size)
     value_to_find = 220
@@ -23,7 +26,7 @@ describe "restricted array" do
     search(my_integer_array, size, value_to_find).must_equal true
   end
 
-  it "linear search method - value exists at the last index in the array" do
+  xit "linear search method - value exists at the last index in the array" do
     size = 7
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -35,7 +38,7 @@ describe "restricted array" do
     search(my_integer_array, size, value_to_find).must_equal true
   end
 
-  it "linear search method - value does not exist in array" do
+  xit "linear search method - value does not exist in array" do
     size = 4
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -46,7 +49,7 @@ describe "restricted array" do
     search(my_integer_array, size, value_to_find).must_equal false
   end
 
-  it "find largest in unsorted array" do
+  xit "find largest in unsorted array" do
     size = 17
     my_integer_array = RestrictedArray.new(size)
 
@@ -56,7 +59,7 @@ describe "restricted array" do
     largest.must_equal my_integer_array[size - 1]
   end
 
-  it "find largest in sorted array" do
+  xit "find largest in sorted array" do
     size = 14
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
@@ -66,7 +69,7 @@ describe "restricted array" do
     largest.must_equal my_integer_array[size - 1]
   end
 
-  it "find smallest in unsorted array" do
+  xit "find smallest in unsorted array" do
     size = 12
     my_integer_array = RestrictedArray.new(size)
 
@@ -76,7 +79,7 @@ describe "restricted array" do
     smallest.must_equal my_integer_array[0]
   end
 
-  it "find smallest in sorted array" do
+  xit "find smallest in sorted array" do
     size = 11
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
@@ -86,7 +89,7 @@ describe "restricted array" do
     smallest.must_equal my_integer_array[0]
   end
 
-  it "reverse array - odd count" do
+  xit "reverse array - odd count" do
     size = 9
     my_integer_array = RestrictedArray.new(size)
     test_array = Array.new(size)
@@ -103,7 +106,7 @@ describe "restricted array" do
     end
   end
 
-  it "reverse array - even count" do
+  xit "reverse array - even count" do
     size = 8
     my_integer_array = RestrictedArray.new(size)
     test_array = Array.new(size)
@@ -120,7 +123,7 @@ describe "restricted array" do
     end
   end
 
-  it "find largest in sorted, reversed array" do
+  xit "find largest in sorted, reversed array" do
     size = 14
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
@@ -131,7 +134,7 @@ describe "restricted array" do
     largest.must_equal my_integer_array[0]
   end
 
-  it "find smallest in sorted, reversed array" do
+  xit "find smallest in sorted, reversed array" do
     size = 11
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
@@ -142,7 +145,7 @@ describe "restricted array" do
     smallest.must_equal my_integer_array[size - 1]
   end
 
-  it "linear search method on sorted, reversed array - value exists in the array" do
+  xit "linear search method on sorted, reversed array - value exists in the array" do
     size = 13
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -154,7 +157,7 @@ describe "restricted array" do
     search(my_integer_array, size, value_to_find).must_equal true
   end
 
-  it "binary search method - value exists at the last index in the array" do
+  xit "binary search method - value exists at the last index in the array" do
     size = 13
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -165,7 +168,7 @@ describe "restricted array" do
     binary_search(my_integer_array, size, value_to_find).must_equal true
   end
 
-  it "binary search method - value exists at the middle index in the array" do
+  xit "binary search method - value exists at the middle index in the array" do
     size = 15
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -176,7 +179,7 @@ describe "restricted array" do
     binary_search(my_integer_array, size, value_to_find).must_equal true
   end
 
-  it "binary search method - value does not exist in the array" do
+  xit "binary search method - value does not exist in the array" do
     size = 15
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
