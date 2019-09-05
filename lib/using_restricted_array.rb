@@ -61,7 +61,16 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_largest(array, length)
-  raise NotImplementedError
+  index = 0
+  max = array[0]
+
+  while array[index] != nil
+    if array[index] >= max 
+      max = array[index]
+    end
+    index += 1
+  end
+  return max
 end
 
 # Finds and returns the smallest integer value in the array
@@ -69,7 +78,16 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_smallest(array, length)
-  raise NotImplementedError
+  index = 0
+  min = array[0]
+
+  while array[index] != nil
+    if array[index] < min 
+      min = array[index]
+    end
+    index += 1
+  end
+  return min
 end
 
 # Reverses the values in the integer array in place
