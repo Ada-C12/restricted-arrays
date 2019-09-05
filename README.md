@@ -1,4 +1,5 @@
 # Restricted-Array
+
 Assignment: Develop common methods on data structure using a restricted array.
 restricted_array.rb provides the RestrictedArray class to be used.
 RestrictedArray allows you to:
@@ -8,7 +9,10 @@ RestrictedArray allows you to:
 
 None of the other methods available in the Ruby Array class are available in the RestrictedArray class.
 
+Due **Monday Sept 9th**
+
 ## Exercise
+
 Implement each of the methods in using_restricted_array.rb.
 Above each method, elaborate the comment to explain the time and space complexity.
 If you define the time and space complexity in terms of *n*, be sure to explain
