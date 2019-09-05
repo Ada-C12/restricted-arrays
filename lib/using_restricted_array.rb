@@ -63,7 +63,15 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_smallest(array, length)
-  raise NotImplementedError
+  smallest_element = array[0]
+  if smallest_element
+    length.times do |index|
+      if array[index] < smallest_element
+        smallest_element = array[index]
+      end
+    end
+  end
+  return smallest_element
 end
 
 # Reverses the values in the integer array in place
