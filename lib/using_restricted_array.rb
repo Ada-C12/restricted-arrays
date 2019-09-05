@@ -79,7 +79,14 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def reverse(array, length)
-  raise NotImplementedError
+  num_swaps = length / 2
+  front = 0
+  back = length - 1
+  num_swaps.times do
+    array[front],array[back] = array[back],array[front]
+    front += 1
+    back -= 1
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
@@ -87,7 +94,11 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  mid = length / 2
+  min = 0
+  max = length -1
+  if array[mid] < value_to_find
+    
 end
 
 # Helper method provided to sort the array in ascending order
