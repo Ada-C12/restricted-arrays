@@ -20,7 +20,13 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def print_array(array)
-  raise NotImplementedError
+  array_size = length(array)
+  print "[ "
+  (array_size).times do |index|
+    print array[index]
+    print " "
+  end
+  puts "]"
 end
 
 # For an unsorted array, searches for 'value_to_find'.
