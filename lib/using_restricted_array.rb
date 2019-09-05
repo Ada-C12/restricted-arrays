@@ -6,33 +6,57 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(1)?
+# Space complexity: O(1)
 def length(array)
-  raise NotImplementedError
+  counter = 0
+  until array[counter] == nil
+    array[counter]
+    counter += 1
+  end
+  return counter
 end
 
 # Prints each integer values in the array
 # Time complexity: ?
-# Space complexity: ?
+# Space complexity: O(n)
 def print_array(array)
-  raise NotImplementedError
+  counter = 0
+  while counter < length(array)
+    puts array[counter]
+    counter += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)?
+# Space complexity: O(1)
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  counter = 0
+  while counter < length
+    if array[counter] == value_to_find
+      return true
+    end
+    counter += 1
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 # Time complexity: ?
-# Space complexity: ?
+# Space complexity: O(1)
 def find_largest(array, length)
-  raise NotImplementedError
+  counter = 0
+  largest = 0
+  while counter < length
+    if array[counter] > largest
+      largest = array[counter]
+    end
+    counter += 1
+  end
+  return largest
 end
 
 # Finds and returns the smallest integer value in the array
@@ -40,7 +64,15 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_smallest(array, length)
-  raise NotImplementedError
+  counter = 0
+  smallest = 222
+  while counter < length
+    if array[counter] < smallest
+      smallest = array[counter]
+    end
+    counter += 1
+  end
+  return smallest
 end
 
 # Reverses the values in the integer array in place
