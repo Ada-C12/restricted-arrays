@@ -23,11 +23,19 @@ def length(array)
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def print_array(array)
-  raise NotImplementedError
+  index = 0
+  value = array[index]
+  until value == nil
+    print "#{value} "
+    index += 1
+    value = array[index]
+  end
 end
+
+print_array([1,2,3,5,6,7,4534,nil])
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
