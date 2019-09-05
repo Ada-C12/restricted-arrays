@@ -94,11 +94,25 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def binary_search(array, length, value_to_find)
-  mid = length / 2
-  min = 0
-  max = length -1
-  if array[mid] < value_to_find
-    
+  mid_index = (length / 2) -1
+  min_index = 0
+  max_index = length -1
+  until mid_index == max_index || mid_index == min_index
+    if array[mid_index] < value_to_find
+      min_index = mid_index
+      mid_index = ((max_index + min_index) / 2.0).ceil
+    elsif
+      array[mid_index] > value_to_find
+      max_index = mid_index
+      mid_index = (max_index + min_index) / 2
+    elsif
+      array[mid_index] == value_to_find
+      return true
+    end
+
+    # mid never becomes last index bc rounding down when odd
+  end
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
