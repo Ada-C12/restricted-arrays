@@ -6,25 +6,54 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+
+
+# Time complexity: n
+# Space complexity: 1
+# time increases linearly by amount of elements as 2 times more elements, will take two times more to get the length.
+# space complexity is one (result is stored in a variable).  
 def length(array)
-  raise NotImplementedError
+  index = 0
+  count =  0
+
+  until array[index] == nil
+      array[index]
+      index += 1  
+      count += 1
+  end
+  return count 
 end
 
 # Prints each integer values in the array
 # Time complexity: ?
 # Space complexity: ?
 def print_array(array)
-  raise NotImplementedError
+  index = 0
+
+  while array[index] != nil
+      p array[index] + " "
+      index += 1 
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 # Time complexity: ?
 # Space complexity: ?
+
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  index = 0
+  find_value = false
+
+  while array[index] != nil
+    if array[index] == value_to_find
+      find_value = true
+     break
+    else
+      index += 1
+    end
+  end
+  return find_value
 end
 
 # Finds and returns the largest integer value the array
