@@ -9,6 +9,13 @@ require_relative 'restricted_array.rb'
 # Time complexity: ?
 # Space complexity: ?
 def length(array)
+  array_length = 0 
+  i = 0 
+  until array[i] == nil
+    array_length += 1
+    i += 1
+  end  
+  return array_length
   raise NotImplementedError
 end
 
