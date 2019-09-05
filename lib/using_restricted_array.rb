@@ -6,10 +6,20 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def length(array)
-  raise NotImplementedError
+  length = 0
+  index = 0
+
+  value = array[index]
+  until value == nil
+    length += 1
+    index += 1
+    value = array[index]
+  end
+  
+  return length
 end
 
 # Prints each integer values in the array
