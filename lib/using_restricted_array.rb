@@ -9,8 +9,20 @@ require_relative 'restricted_array.rb'
 # Time complexity: ?
 # Space complexity: ?
 def length(array)
-  raise NotImplementedError
+  if array[0] == nil
+    return 0
+  else
+    length = 0
+    index = 0
+    until array[index] == nil
+      length += 1
+      index += 1
+    end
+  end
+  return length
 end
+
+
 
 # Prints each integer values in the array
 # Time complexity: ?
