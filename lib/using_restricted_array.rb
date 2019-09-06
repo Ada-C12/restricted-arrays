@@ -6,7 +6,7 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: O(1)?
+# Time complexity: O(n)
 # Space complexity: O(1)
 def length(array)
   counter = 0
@@ -18,7 +18,7 @@ def length(array)
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
+# Time complexity: O(n)
 # Space complexity: O(n)
 def print_array(array)
   counter = 0
@@ -30,7 +30,7 @@ end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: O(n)?
+# Time complexity: O(n)
 # Space complexity: O(1)
 def search(array, length, value_to_find)
   counter = 0
@@ -45,7 +45,7 @@ end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
+# Time complexity: O(n)
 # Space complexity: O(1)
 def find_largest(array, length)
   counter = 0
@@ -61,8 +61,8 @@ end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def find_smallest(array, length)
   counter = 0
   smallest = 222
@@ -76,8 +76,8 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def reverse(array, length)
   num_swaps = length / 2
   front = 0
@@ -91,16 +91,19 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(log n)
+# Space complexity: O(1)
 def binary_search(array, length, value_to_find)
-  mid_index = (length / 2) -1
+  mid_index = (length - 1 ) / 2
   min_index = 0
   max_index = length -1
   until mid_index == max_index || mid_index == min_index
     if array[mid_index] < value_to_find
       min_index = mid_index
-      mid_index = ((max_index + min_index) / 2.0).ceil
+      mid_index = ((max_index + min_index) / 2.0)
+        if mid_index % 2 != 0
+          mid_index += 0.5
+        end
     elsif
       array[mid_index] > value_to_find
       max_index = mid_index
@@ -109,8 +112,6 @@ def binary_search(array, length, value_to_find)
       array[mid_index] == value_to_find
       return true
     end
-
-    # mid never becomes last index bc rounding down when odd
   end
   return false
 end
