@@ -80,12 +80,12 @@ end
 # Space complexity: O(1)
 def reverse(array, length)
   num_swaps = length / 2
-  front = 0
-  back = length - 1
+  front_index = 0
+  back_index = length - 1
   num_swaps.times do
-    array[front],array[back] = array[back],array[front]
-    front += 1
-    back -= 1
+    array[front_index],array[back_index] = array[back_index],array[front_index]
+    front_index += 1
+    back_index -= 1
   end
 end
 
@@ -94,13 +94,14 @@ end
 # Time complexity: O(log n)
 # Space complexity: O(1)
 def binary_search(array, length, value_to_find)
-  mid_index = (length - 1 ) / 2
   min_index = 0
-  max_index = length -1
+  max_index = length - 1
+  mid_index = max_index / 2
   until mid_index == max_index || mid_index == min_index
     if array[mid_index] < value_to_find
       min_index = mid_index
       mid_index = ((max_index + min_index) / 2.0)
+      # Because no .ceil...
         if mid_index % 2 != 0
           mid_index += 0.5
         end
