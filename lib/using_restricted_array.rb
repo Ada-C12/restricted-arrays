@@ -23,6 +23,12 @@ end
 # Time complexity: O(n)
 # Space complexity: 0(1)
 def print_array(array)
+  i = 0
+  
+  while array[i] != nil
+    puts array[i]
+    i += 1
+  end
   
 end
 
