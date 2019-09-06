@@ -23,9 +23,7 @@ end
 # Time complexity: O(n)
 # Space complexity: 0(1)
 def print_array(array)
-  array.length.times do |i|
-    puts array[i] 
-  end
+  
 end
 
 # For an unsorted array, searches for 'value_to_find'.
@@ -113,7 +111,7 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: O(n)
+# Time complexity: O(log n)
 # Space complexity: O(1)
 def binary_search(array, length, value_to_find)
   
