@@ -34,6 +34,8 @@ end
 # Time complexity: O(n) - linear complexity
 # Space complexity: O(1) - constant complexity
 def search(array, length, value_to_find)
+  return nil if length == 0
+  
   length.times do |index|
     return true if array[index] == value_to_find
   end
@@ -47,7 +49,7 @@ end
 def find_largest(array, length)
   return nil if length == 0
   largest_value = array[0]
-
+  
   length.times do |index|
     largest_value = array[index] if array[index] > largest_value
   end
@@ -70,9 +72,21 @@ end
 
 # Reverses the values in the integer array in place
 # Time complexity: ?
-# Space complexity: ?
+# Space complexity: O(1)
 def reverse(array, length)
-  raise NotImplementedError
+  return array if length <= 1
+  left = 0
+  # subtract by one to get index number of last value
+  right = length - 1
+  
+  while left < right
+    temp = array[left]
+    array[left] = array[right]
+    array[right] = temp
+
+    left += 1
+    right -= 1
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
