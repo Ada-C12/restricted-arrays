@@ -22,7 +22,11 @@ end
 # Time complexity: O(n) - linear complexity
 # Space complexity: O(1) - constant complexity
 def print_array(array)
-
+  index = 0
+  while array[index]
+    puts array[index]
+    index += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
