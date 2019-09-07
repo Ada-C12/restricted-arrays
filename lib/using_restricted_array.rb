@@ -64,18 +64,30 @@ def find_largest(array, length)
   return max
 end
 
-
-
-
-
-
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def find_smallest(array, length)
-  raise NotImplementedError
+  return nil if array.nil?  || length == 0
+  
+  min = array[0]
+  (1...length).each do |index|
+    if array[index] < min
+      min = array[index]
+    end
+  end
+  
+  return min
 end
+
+
+
+
+
+
+
+
 
 # Reverses the values in the integer array in place
 # Time complexity: ?
