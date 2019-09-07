@@ -47,18 +47,27 @@ def search(array, length, value_to_find)
   return false
 end
 
-
-
-
-
-
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def find_largest(array, length)
-  raise NotImplementedError
+  return nil if array.nil?  || length == 0
+  
+  max = array[0]
+  (1...length).each do |index|
+    if array[index] > max
+      max = array[index]
+    end
+  end
+  
+  return max
 end
+
+
+
+
+
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
