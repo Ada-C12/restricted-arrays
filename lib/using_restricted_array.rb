@@ -24,9 +24,11 @@ end
 def print_array(array)
   index = 0
   while array[index]
-    puts array[index]
+    print array[index]
+    print " "
     index += 1
   end
+  puts
 end
 
 # For an unsorted array, searches for 'value_to_find'.
