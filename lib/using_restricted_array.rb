@@ -42,10 +42,14 @@ end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def find_largest(array, length)
-  raise NotImplementedError
+  largest_value = 0
+  length.times do |index|
+    largest_value = array[index] if array[index] > largest_value
+  end
+  return largest_value
 end
 
 # Finds and returns the smallest integer value in the array
