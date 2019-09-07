@@ -1,4 +1,10 @@
 require_relative 'restricted_array.rb'
+
+
+# puts length([5, 4, 6, 8])
+
+
+
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
@@ -41,22 +47,32 @@ def search(array, length, value_to_find)
 end
 
 
-
-# puts length([5, 4, 6, 8])
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def find_largest(array, length)
-  raise NotImplementedError
+  largest_num = 0
+  length.times do |i|
+    if array[i] > largest_num
+      largest_num = array[i]
+    end
+  end
+  return largest_num
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def find_smallest(array, length)
-  raise NotImplementedError
+  smallest_num = 221
+  length.times do |i|
+    if array[i] < smallest_num
+      smallest_num = array[i]
+    end
+  end
+  return smallest_num
 end
 
 # Reverses the values in the integer array in place
