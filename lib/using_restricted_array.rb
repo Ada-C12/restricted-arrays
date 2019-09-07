@@ -37,7 +37,7 @@ end
 def search(array, length, value_to_find)
   counter = 0
   
-  while counter != length
+  while counter < length
     if array[counter] == value_to_find
       return true
     else
@@ -52,16 +52,16 @@ end
 # Time complexity: O(n)
 # Space complexity: O(1)
 def find_largest(array, length)
-  return nil if array.nil?  || length == 0
+  return nil if length == 0
   
-  max = array[0]
+  max_num = array[0]
   (1...length).each do |index|
-    if array[index] > max
-      max = array[index]
+    if array[index] > max_num
+      max_num = array[index]
     end
   end
   
-  return max
+  return max_num
 end
 
 # Finds and returns the smallest integer value in the array
@@ -69,20 +69,20 @@ end
 # Time complexity: O(n)
 # Space complexity: O(1)
 def find_smallest(array, length)
-  return nil if array.nil?  || length == 0
+  return nil if length == 0
   
-  min = array[0]
+  min_num = array[0]
   (1...length).each do |index|
-    if array[index] < min
-      min = array[index]
+    if array[index] < min_num
+      min_num = array[index]
     end
   end
   
-  return min
+  return min_num
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: O(n)
+# Time complexity: O(log n)
 # Space complexity: O(1)
 def reverse(array, length)
   return if length <= 1
@@ -100,16 +100,30 @@ def reverse(array, length)
   end
 end
 
-
-
-
-
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(log n)
+# Space complexity: O(1)
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  return false if length == 0
+  
+  low = 0
+  high = length - 1
+  
+  while low <= high
+    mid = (low + high) / 2
+    
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+      
+      high = mid - 1
+    else
+      low = mid + 1
+    end
+  end
+  
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
