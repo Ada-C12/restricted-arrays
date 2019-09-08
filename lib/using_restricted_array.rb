@@ -49,7 +49,7 @@ end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: O(n). N is the length of the array. In the worst case scenario, it has to check every element.
+# Time complexity: O(n). N is the length of the array. It always has to check every element.
 # Space complexity: O(1). It always returns one value, so space is constant.
 def find_largest(array, length)
   return nil if length == 0
@@ -66,7 +66,7 @@ end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: O(n). N is the length of the array. In the worst case scenario, it has to check every element.
+# Time complexity: O(n). N is the length of the array. It always has to check every element.
 # Space complexity: O(1). It always returns one value, so space is constant.
 def find_smallest(array, length)
   return nil if length == 0
