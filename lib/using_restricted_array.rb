@@ -6,8 +6,8 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) because the method is linear as the program will run depending on how long the array is. 
+# Space complexity: O(n) because the space used will depend on how long the length of the array is. 
 def length(array)
   array_length = 0 
   i = 0 
@@ -16,53 +16,117 @@ def length(array)
     i += 1
   end  
   return array_length
-  raise NotImplementedError
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) because the time it take to run the program will run depending on how long the array is. 
+# Space complexity: O(n) because the space used will depend on how long the length of the array is. 
 def print_array(array)
-  raise NotImplementedError
+  i = 0 
+  until array[i] == nil
+    print "#{array[i]} "
+    i += 1
+  end 
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) because it will run until i is equal to length, which varies depending on array.
+# Space complexity: O(n) because space will be used until i is equal to length.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  i = 0 
+  while i < length
+    if value_to_find == array[i]
+      return true
+    end 
+    i += 1
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) as the time taken will depend on the length of the array
+# Space complexity: O(n) as the space taken will depend on the length of the array
 def find_largest(array, length)
-  raise NotImplementedError
+  if length == 0
+    return nil
+  end 
+
+  largest_value = array[0]
+  i = 1
+  while i < length
+    if array[i] > largest_value
+      largest_value = array[i]
+    end 
+    i = i + 1
+  end
+
+  return largest_value
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) as the time taken will depend on the length of the array
+# Space complexity: O(n) as the space taken will depend on the length of the array
 def find_smallest(array, length)
-  raise NotImplementedError
+  if length == 0
+    return nil
+  end 
+
+  smallest_value = array[0]
+  i = 1
+  while i < length
+    if array[i] < smallest_value
+      smallest_value = array[i]
+    end 
+    i = i + 1
+  end
+
+  return smallest_value
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) as the time taken will depend on the length of the array
+# Space complexity: O(n) as the space taken will depend on the length of the array
 def reverse(array, length)
-  raise NotImplementedError
+  i = 0
+  j = length - 1
+
+  while i < j
+    temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
+
+    i += 1
+    j -= 1
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) as the space taken will depend on the length of the array although faster as it cuts the time in half as a binary search
+# Space complexity: O(n) as the space taken will depend on the length of the array but twice as fast as a linear method
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  if length == 0
+    return false
+  end 
+
+  low = 0
+  high = length - 1
+
+  while low <= high
+    mid = (low + high) / 2
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+      high = mid - 1
+    else 
+      array[mid] < value_to_find
+      low = mid + 1
+    end
+  end 
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
