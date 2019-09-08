@@ -1,3 +1,5 @@
+# Author: Farah Davoodi - Branches
+
 require_relative 'restricted_array.rb'
 require 'pry'
 # RestrictedArray can be created using a specified size, or a random size in
