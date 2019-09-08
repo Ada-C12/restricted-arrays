@@ -1,4 +1,7 @@
+# Author: Farah Davoodi - Branches
+
 require_relative 'restricted_array.rb'
+require 'pry'
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
@@ -6,56 +9,132 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) where n=length of array
+# Space complexity: O(1) no new arrays created, only one value returned
 def length(array)
-  raise NotImplementedError
+  if array[0] == nil
+    return nil
+  end
+  
+  i = 0
+  array_length = 0
+  while array[i] != nil
+    i += 1
+    array_length += 1
+  end
+  
+  return array_length
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) where n is length of array
+# Space complexity: O(1) because no additional arrays are stored
 def print_array(array)
-  raise NotImplementedError
+  if array[0] == nil
+    return nil
+  end
+  
+  i = 0
+  array_string = ""
+  while array[i] != nil
+    array_string += "#{array[i]} "
+    i += 1
+  end
+
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) where n is the length of the array
+# Space complexity: O(1) constant because no additional arrays are created
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  length = length(array)
+
+  i = 0
+  while i < length
+    if array[i] == value_to_find
+      return true
+    end
+    i += 1
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), where n is the number of elements in the array
+# Space complexity: O(1) because no new arrays were created
 def find_largest(array, length)
-  raise NotImplementedError
+  length = length(array)
+
+  i = 0
+  max = array[0]
+  while i < length
+    if array[i] > max
+      max = array[i]
+    end
+    i += 1
+  end
+  return max
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) where n is the number of elements in the array
+# Space complexity: O(1) because no new arrays were created
 def find_smallest(array, length)
-  raise NotImplementedError
+  length = length(array)
+
+  i = 0
+  min = array[0]
+  while i < length
+    if array[i] < min
+      min = array[i]
+    end
+    i += 1
+  end
+  return min
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) where n is the length of the array
+# Space complexity: O(1), constant, because no additional arrays are stored
 def reverse(array, length)
-  raise NotImplementedError
+  length = length(array)
+  
+  i = 0
+  j = length - 1
+  while i < j
+    temp_num = array[i]
+    array[i] = array[j]
+    array[j]=temp_num
+
+    i += 1
+    j -= 1
+  end
+  return array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: log base 2 of (n) where n is the number of elements in the array
+# Space complexity: O(1) because no additional arrays were created
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  length = length(array)
+
+  low = 0
+  high = length - 1
+  while low <= high
+    mid = (low + high) / 2
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+      high = mid - 1
+    elsif array[mid] < value_to_find
+      low = mid + 1
+    end
+  end
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
