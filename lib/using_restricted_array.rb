@@ -102,7 +102,8 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: O(log n). It uses a logirithmic search to eliminate half of the array each time until the value is found or the loop ends.
+# Time complexity: O(log n). N is the length of the array. 
+# It uses a logirithmic search to eliminate half of the array each time until the value is found or the loop ends.
 # Space complexity: O(1). It always returns one boolean, so space is constant.
 def binary_search(array, length, value_to_find)
   return false if length == 0
