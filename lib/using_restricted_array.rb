@@ -10,7 +10,6 @@ require 'pry'
 # Time complexity: O(n) where n=length of array
 # Space complexity: O(1) no new arrays created, only one value returned
 def length(array)
-  # raise NotImplementedError
   if array[0] == nil
     return nil
   end
@@ -29,7 +28,6 @@ end
 # Time complexity: O(n) where n is length of array
 # Space complexity: O(1) because no additional arrays are stored
 def print_array(array)
-  # raise NotImplementedError
   if array[0] == nil
     return nil
   end
@@ -48,7 +46,16 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def search(array, length, value_to_find)
-  # raise NotImplementedError
+  length = length(array)
+
+  i = 0
+  while i < length
+    if array[i] == value_to_find
+      return true
+    end
+    i += 1
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
@@ -71,7 +78,6 @@ end
 # Time complexity: O(n) where n is the length of the array
 # Space complexity: O(1), constant, because no additional arrays are stored
 def reverse(array, length)
-  # raise NotImplementedError
   length = length(array)
   
   i = 0
