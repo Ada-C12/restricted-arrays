@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
+require 'minitest/pride'
 require_relative '../lib/restricted_array'
 require_relative '../lib/using_restricted_array'
 
@@ -12,7 +13,7 @@ describe "restricted array" do
 
     my_integer_array_length.must_equal size
   end
-
+  
   it "linear search method - value exists in the middle, in the array" do
     size = 9
     my_integer_array = RestrictedArray.new(size)
