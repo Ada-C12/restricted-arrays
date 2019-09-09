@@ -53,7 +53,7 @@ end
 # Space complexity: ?
 def find_largest(array, length)
   largest = 0
-  array.length.times do |i|
+  length.times do |i|
     if array[i] > largest
       largest = array [i]
     end
@@ -68,7 +68,7 @@ end
 # Space complexity: ?
 def find_smallest(array, length)
   smallest = array[0]
-  array.length.times do |i|
+  length.times do |i|
     if array[i] < smallest
       smallest = array[i]
     end
