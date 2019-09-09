@@ -6,16 +6,24 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) where n is the length of the array argument
+# Space complexity: O(1) constant
 def length(array)
+  length = 0
+  until array[length] == nil
+    length +=1
+  end
+  return length
   raise NotImplementedError
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: ? O(n) where n is the length of the array argument
+# Space complexity: ? O(1) constant
 def print_array(array)
+  length(array).times do |i|
+    puts array[i]
+  end
   raise NotImplementedError
 end
 
@@ -24,6 +32,18 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def search(array, length, value_to_find)
+  if length == 0
+    return false
+  end
+  i = 0
+  while i < length
+    if value_to_find == array[i]
+      return true
+    end
+    i += 1
+  end
+  return false 
+  
   raise NotImplementedError
 end
 
@@ -32,6 +52,13 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_largest(array, length)
+  largest = 0
+  array.length.times do |i|
+    if array[i] > largest
+      largest = array [i]
+    end
+  end
+  return largest
   raise NotImplementedError
 end
 
@@ -40,6 +67,13 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_smallest(array, length)
+  smallest = array[0]
+  array.length.times do |i|
+    if array[i] < smallest
+      smallest = array[i]
+    end
+  end
+  return smallest
   raise NotImplementedError
 end
 
@@ -47,6 +81,25 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def reverse(array, length)
+  i = 0
+  j = length - 1
+  
+  temp_array = Array.new(length)
+  
+  while i < length
+    temp_array[i] = array[j]
+    i += 1
+    j -+ 1
+  end
+  
+  i = 0
+  j = 0
+  while i < length
+    array[i] = array[j] 
+    i += 1
+    j += 1
+  end
+  return array
   raise NotImplementedError
 end
 
@@ -55,6 +108,23 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def binary_search(array, length, value_to_find)
+  if length == 0
+    return false
+  end
+  low = 0
+  high = length - 1
+  while low <= high 
+    mid = (low + high) / 2
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+      high = mid - 1
+    else array[mid] < value_to_find
+      low = mid + 1
+    end
+  end
+  return false
+  
   raise NotImplementedError
 end
 
