@@ -6,56 +6,124 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: linear, although it appears constant because the loop is counter-controlled and does not depend on the size of the array, this is a cheat as the number is based on the maximum size of the array. Thereore, as the array grows, the counter should grow to accomodate it. 
+# Space complexity: constant, there are 2 variables created but they are over-written and do not depend on the size of the array
 def length(array)
-  raise NotImplementedError
+  i = 0
+  length = 0
+  21.times do
+    until array[i] == nil
+      i += 1
+      length += 1
+    end
+  end
+  return length
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: linear, please see explanation on LN 9. 
+# Space complexity: constant, no variables are stored in memory.
 def print_array(array)
-  raise NotImplementedError
+  21.times do
+    until array[i] == nil
+      i += 1
+      puts array[i]
+    end
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: linear, the array is passed through once, as the array grows, the time required to look through each value increases at the same rate.
+# Space complexity: contant, the one stored value is over-written and does not depend on the size of the array
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  result = false
+  i = 0
+  length.times do
+    i += 1
+    if array[i] == value_to_find
+      result = true
+    end
+  end
+  return result
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: linear, the array is passed through once, as the array grows, the time required to look through each value increases at the same rate.
+# Space complexity: constant, there are 2 variables created but they are over-written and do not depend on the size of the array
 def find_largest(array, length)
-  raise NotImplementedError
+  high_value = array[0]
+  i = 0
+  (length).times do 
+    if array[i] >= high_value
+      high_value = array[i]
+    end
+    i += 1
+  end
+  return high_value
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: linear, the array is passed through once, as the array grows, the time required to look through each value increases at the same rate.
+# Space complexity: constant, there are 2 variables created but they are over-written and do not depend on the size of the array
 def find_smallest(array, length)
-  raise NotImplementedError
+  low_value = array[0]
+  i = 0
+  (length).times do 
+    if array[i] <= low_value
+      low_value = array[i]
+    end
+    i += 1
+  end
+  return low_value
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: quadratic, the array is iterated through twice, so as it gorws, the time required to process it would grow twice as much.
+# Space complexity: linear, the array is copied over into transformed_array, which is the same size as the original array, so as array grows, the space required would grow at the same rate.
 def reverse(array, length)
-  raise NotImplementedError
+  transformed_array = []
+  i = 1
+  (length + 1).times do
+    transformed_array.push(array[length - i])
+    i += 1
+  end
+  
+  transformed_array.push(nil)
+  i = 0
+  (length).times do
+    array[i] = transformed_array[i]
+    i += 1
+  end
+  return array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: logarithmic, as the size of the array grows, the number of times min or max have to be recalculated will increase at a higher rate, however, not high enough to be quadratic.
+# Space complexity: constant, the four variables are assigned and may be over-written as the grogram runs regardless of the size of the array.
+
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  
+  result = false
+  
+  min = 0
+  max = length - 1
+  midpoint = nil
+  
+  until midpoint == min || midpoint == max || result == true
+    midpoint = ( min + max ) / 2 
+    if array[midpoint] == value_to_find || array[min] == value_to_find || array[max] == value_to_find
+      return true
+    elsif array[midpoint] < value_to_find
+      min = midpoint
+    else array[midpoint] > value_to_find
+      max = midpoint
+    end
+  end
+  return result
 end
 
 # Helper method provided to sort the array in ascending order
