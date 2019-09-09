@@ -94,7 +94,18 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def reverse(array, length)
-  raise NotImplementedError
+  memo = 0
+  i = 0
+  j = length - 1
+
+  while i < j 
+    memo = array[i]
+    array[i] = array[j]
+    array[j] = memo
+    i += 1
+    j -= 1
+  end
+
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
