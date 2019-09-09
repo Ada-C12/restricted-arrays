@@ -9,14 +9,21 @@ require_relative 'restricted_array.rb'
 # Time complexity: ?
 # Space complexity: ?
 def length(array)
-  raise NotImplementedError
+  n = 0
+  until array[n] == nil
+    n += 1
+  end 
+  return n
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: n
+# Space complexity: 1
 def print_array(array)
-  raise NotImplementedError
+  n = 0
+  until array[n] == nil
+    print "#{array[n]} "
+  end 
 end
 
 # For an unsorted array, searches for 'value_to_find'.
@@ -24,7 +31,12 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  n = 0
+  while n < length 
+    return true if array[n] == value_to_find
+    n += 1
+  end 
+  return false 
 end
 
 # Finds and returns the largest integer value the array
@@ -32,7 +44,15 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_largest(array, length)
-  raise NotImplementedError
+  n = 0
+  largest_value = array[0]
+  while n < length
+    if array[n] && array[n] > largest_value
+      largest_value = array[n] 
+    end 
+    n += 1 
+  end
+  return largest_value
 end
 
 # Finds and returns the smallest integer value in the array
@@ -40,15 +60,31 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_smallest(array, length)
-  raise NotImplementedError
+  n = 1
+  smallest_value = array[0]
+  while n < length
+    if array[n] && array[n] < smallest_value
+      smallest_value = array[n] 
+    end 
+    n += 1 
+  end
+  return smallest_value
 end
 
 # Reverses the values in the integer array in place
 # Time complexity: ?
 # Space complexity: ?
 def reverse(array, length)
-  raise NotImplementedError
-end
+  a = 0
+  b = length - 1
+  while a < b do 
+    temp_a = array[a] 
+    array[a] = array[b]
+    array[b] = temp_a
+    a += 1
+    b -= 1
+  end
+end 
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
@@ -89,4 +125,4 @@ def sort(array, length)
     end
   end
 end
-## --- END OF METHODS ---
+
