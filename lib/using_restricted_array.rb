@@ -14,7 +14,7 @@ def length(array)
     length +=1
   end
   return length
-  raise NotImplementedError
+  # raise NotImplementedError
 end
 
 # Prints each integer values in the array
@@ -24,7 +24,7 @@ def print_array(array)
   length(array).times do |i|
     puts array[i]
   end
-  raise NotImplementedError
+  # raise NotImplementedError
 end
 
 # For an unsorted array, searches for 'value_to_find'.
@@ -44,7 +44,7 @@ def search(array, length, value_to_find)
   end
   return false 
   
-  raise NotImplementedError
+  # raise NotImplementedError
 end
 
 # Finds and returns the largest integer value the array
@@ -59,7 +59,7 @@ def find_largest(array, length)
     end
   end
   return largest
-  raise NotImplementedError
+  # raise NotImplementedError
 end
 
 # Finds and returns the smallest integer value in the array
@@ -74,7 +74,7 @@ def find_smallest(array, length)
     end
   end
   return smallest
-  raise NotImplementedError
+  # raise NotImplementedError
 end
 
 # Reverses the values in the integer array in place
@@ -97,7 +97,7 @@ def reverse(array, length)
   end
   
   return array
-  raise NotImplementedError
+  # raise NotImplementedError
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
@@ -122,7 +122,7 @@ def binary_search(array, length, value_to_find)
   end
   return false
   
-  raise NotImplementedError
+  # raise NotImplementedError
 end
 
 # Helper method provided to sort the array in ascending order
