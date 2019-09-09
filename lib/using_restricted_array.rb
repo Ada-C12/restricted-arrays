@@ -6,41 +6,76 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def length(array)
-  raise NotImplementedError
+  index = 0
+  
+  while (array[index] != nil)
+    index += 1
+  end
+  
+  return index 
 end
 
+
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n) 
+# print what array is, access internal to run methods
 def print_array(array)
-  raise NotImplementedError
+  index = 0
+  while (array[index] != nil)
+    print array[index]
+    index += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  index = 0
+  while (array[index] != nil)
+    index += 1
+    if array[index] == value_to_find
+      return true 
+    end
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def find_largest(array, length)
-  raise NotImplementedError
+  index = 0
+  max = nil
+  while (array[index] != nil)
+    if max == nil || array[index] > max 
+      max = array[index]
+    end
+    index += 1 
+  end
+  return max 
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def find_smallest(array, length)
-  raise NotImplementedError
+  index = 0
+  min = nil
+  while (array[index] != nil)
+    if min == nil || array[index] < min
+      min = array[index]
+    end
+    index += 1
+  end
+  return min
 end
 
 # Reverses the values in the integer array in place
