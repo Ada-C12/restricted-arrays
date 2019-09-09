@@ -1,4 +1,5 @@
 require_relative 'restricted_array.rb'
+
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
@@ -6,56 +7,119 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+
+# Time complexity: O(n) because the method loops through the array until it reaches nil, the time that the algorithm takes is linear in relation to the length of the array
+# Space complexity: O(1) because the values stored (i and fin) do not increase in size with different array lengths
 def length(array)
-  raise NotImplementedError
+  i = 0
+  fin = false
+  while fin == false
+    if array[i] == nil
+      fin = true
+    else
+      i += 1
+    end
+  end
+  
+  return i
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) because the amount of time the method takes to complete is  linear in relation to the length of the array
+# Space complexity: O(1) because the values stored (i and my_length) do not increase in size with different array lengths
 def print_array(array)
-  raise NotImplementedError
+  i = 0
+  my_length = array.length
+  
+  while i < my_length
+    p array[i]
+    i += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) because the amount of time the method takes to complete in the worst case is linear in relation to the length of the array
+# Space complexity: O(1) because the values stored (i) do not increase in size with different array lengths
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  i = 0
+  
+  while i < length
+    return true if array[i] == value_to_find
+    i += 1
+  end
+  
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) because the amount of time the method takes to complete in the worst case is  linear in relation to the length of the array
+# Space complexity: O(1) because the values stored (i and largest_int) do not increase in size with different array lengths
 def find_largest(array, length)
-  raise NotImplementedError
+  i = 0
+  largest_int = array[0]
+  
+  while i < length
+    largest_int = array[i] if array[i] > largest_int
+    i += 1
+  end
+  
+  return largest_int
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) because the amount of time the method takes to complete in the worst case is linear in relation to the length of the array
+# Space complexity: O(1) because the values stored (i and smallest_int) do not increase in size with different array lengths
 def find_smallest(array, length)
-  raise NotImplementedError
+  i = 0
+  smallest_int = array[0]
+  
+  while i < length
+    smallest_int = array[i] if array[i] < smallest_int
+    i += 1
+  end
+  
+  return smallest_int
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) because the amount of time the method takes to complete in the worst case is linear in relation to length of the array
+# Space complexity: O(1) because the values stored (j, i, a, and b) do not increase in size with different array lengths
 def reverse(array, length)
-  raise NotImplementedError
+  i = 0
+  j = length - 1
+  while i < ( length / 2 )
+    a = array[i]
+    b = array[j]
+    
+    array[i] = b
+    array[j] = a
+    
+    i += 1
+    j -= 1
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(log n) because the amount of time the method takes to complete in the worst case is logarithmic in relation to length of the array
+# Space complexity: O(1) because the values stored (j, i, mid) do not increase in size with different array lengths
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  i = 0
+  mid = length / 2
+  j = length - 1
+  
+  while i < j
+    return true if array[mid] == value_to_find || array[i] == value_to_find || array[j] == value_to_find
+    
+    value_to_find < mid ? j = mid - 1 : i = mid + 1
+    
+    mid = (i + j) / 2
+  end
+  
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
