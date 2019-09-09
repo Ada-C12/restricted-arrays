@@ -6,56 +6,104 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(1), the block will always run at most 20 times.
+# Space complexity: O(1), variables are created only once.
 def length(array)
-  raise NotImplementedError
+  array_length = 0
+  20.times do |i|
+    if array[i] != nil
+      array_length += 1
+    elsif array[i] == nil
+      break
+    end
+  end
+  return array_length
+  # raise NotImplementedError
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), the code will run 'n' times with 'n' being the length of the array.
+# Space complexity: O(1), a 'print' method will not use additional memory.
 def print_array(array)
-  raise NotImplementedError
+  (length(array)).times do |i|
+    print array[i]
+  end
+  # raise NotImplementedError
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), the time used is dependent on the value of 'length'.
+# Space complexity: O(1), the variables are constant and the space used does not change as the time complexity increases.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  length.times do |i|
+    if array[i] == value_to_find
+      return true
+    end
+  end
+  return false # if "do" loop never returns true, value doesn't exist
+  # raise NotImplementedError
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), the time used is again dependent on the value of 'length'.
+# Space complexity: O(1), the variable 'largest_int' is assigned to a value that already exists in 'array', so it does not take up more memory.
 def find_largest(array, length)
-  raise NotImplementedError
+  largest_int = array[0]
+  (length - 1).times do |i|
+    if array[i + 1] > largest_int
+      largest_int = array[i + 1]
+    end
+  end
+  return largest_int
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), as usual, the time used is dependent on the value of 'length'.
+# Space complexity: O(1), the variable 'smallest_int' is assigned to a value that already exists in 'array', so it does not take up more memory.
+
+# NOTE: the code below is also the code I originally had for 'find_largest'. However, in 'find_largest', I altered the numeric value of 'length' and the array index by 1. I wanted to account for the fact that 'largest_int' is already assigned to array[0], so it would be redundant to include array[0] in the 'times' loop to compare itself to itself (i.e. 'i=0, array[i] > largest_int'). I'm not sure which method ends up being the least costly, or if the difference is so insignificant that it doesn't matter. 
+
 def find_smallest(array, length)
-  raise NotImplementedError
+  smallest_int = array[0]
+  length.times do |i|
+    if array[i] < smallest_int
+      smallest_int = array[i]
+    end
+  end
+  return smallest_int
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), even though the variable 'length' upon which the time complexity depends is divided in half, it will still run 'n' number of times.
+# Space complexity: O(n), because the variable 'int_holder' is created with every loop, and the variables 'a' and 'b' are modified with each loop.
 def reverse(array, length)
-  raise NotImplementedError
+  a = 0
+  b = length - 1  # assigned to last index of array
+  (length / 2).times do
+    int_holder = array[a]
+    array[a] = array[b]
+    array[b] = int_holder
+    a += 1
+    b -= 1
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), the code will run 'length' number of times in a worst case scenario.
+# Space complexity: O(1), the variable 'found' will be assigned a value at most twice (once when it is declared, and once when the first 'value_to_find' element is found.)
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  found = false
+  length.times do |i|
+    if array[i] == value_to_find
+      found = true
+      break
+    end
+  end
+  return found
 end
 
 # Helper method provided to sort the array in ascending order
