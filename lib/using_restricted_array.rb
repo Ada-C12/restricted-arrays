@@ -81,24 +81,21 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def reverse(array, length)
+  
+  if length <= 1
+    return array
+  end
   i = 0
   j = length - 1
   
-  temp_array = Array.new(length)
-  
-  while i < length
-    temp_array[i] = array[j]
+  while i < j
+    temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
     i += 1
-    j -+ 1
+    j -= 1
   end
   
-  i = 0
-  j = 0
-  while i < length
-    array[i] = array[j] 
-    i += 1
-    j += 1
-  end
   return array
   raise NotImplementedError
 end
