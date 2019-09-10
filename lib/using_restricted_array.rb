@@ -14,7 +14,7 @@ def length(array)
     length +=1
   end
   return length
-  # raise NotImplementedError
+  raise NotImplementedError
 end
 
 # Prints each integer values in the array
@@ -24,13 +24,13 @@ def print_array(array)
   length(array).times do |i|
     puts array[i]
   end
-  # raise NotImplementedError
+  raise NotImplementedError
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: ? O(n) where n is the length of the array argument
+# Space complexity: ? O(1) constant
 def search(array, length, value_to_find)
   if length == 0
     return false
@@ -44,13 +44,13 @@ def search(array, length, value_to_find)
   end
   return false 
   
-  # raise NotImplementedError
+  raise NotImplementedError
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: ? O(n), depends on the length of the array
+# Space complexity: ? O(1), constant
 def find_largest(array, length)
   largest = 0
   length.times do |i|
@@ -59,13 +59,13 @@ def find_largest(array, length)
     end
   end
   return largest
-  # raise NotImplementedError
+  raise NotImplementedError
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: ? O(n), depnds on the length of the array
+# Space complexity: ? O(1), constant
 def find_smallest(array, length)
   smallest = array[0]
   length.times do |i|
@@ -74,12 +74,12 @@ def find_smallest(array, length)
     end
   end
   return smallest
-  # raise NotImplementedError
+  raise NotImplementedError
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: ? O(n/2) * it decreases the number of indices you have to go through in half. I believe this evaluates to O(n) where n is the length
+# Space complexity: ?  O(1) constant since you're reassigning the array indices in place
 def reverse(array, length)
   
   if length <= 1
@@ -97,13 +97,13 @@ def reverse(array, length)
   end
   
   return array
-  # raise NotImplementedError
+  raise NotImplementedError
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: ? O(log n) - binary search
+# Space complexity: ? O(1) it is constant
 def binary_search(array, length, value_to_find)
   if length == 0
     return false
@@ -122,7 +122,7 @@ def binary_search(array, length, value_to_find)
   end
   return false
   
-  # raise NotImplementedError
+  raise NotImplementedError
 end
 
 # Helper method provided to sort the array in ascending order
