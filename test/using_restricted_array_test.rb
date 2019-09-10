@@ -187,3 +187,6 @@ describe "restricted array" do
     binary_search(my_integer_array, size, value_to_find).must_equal false
   end
 end
+
+
+puts "hellow"

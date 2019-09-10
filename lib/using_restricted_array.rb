@@ -25,7 +25,7 @@ def print_array(array)
   else
     puts "["
     n = 0
-    m = length - 1
+    m = length(array)
     while n < m
       puts "#{array[n]}, "
       n += 1
@@ -64,11 +64,12 @@ def find_largest(array, length)
   if length == 0
     return nil
   else
+    
     n = 0
     largest = array[0]
     while n < length
       if array[n] > largest
-        largest == array[n]
+        largest = array[n]
       end
       n += 1
     end
@@ -88,7 +89,7 @@ def find_smallest(array, length)
     smallest = array[0]
     while n < length
       if array[n] < smallest
-        smallest == array[n]
+        smallest = array[n]
       end
       n += 1
     end
