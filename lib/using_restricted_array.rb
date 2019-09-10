@@ -31,8 +31,8 @@ end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def search(array, length, value_to_find)
   i = 0
   while array[i] != nil
@@ -49,21 +49,40 @@ end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
-# def find_largest(array, length)
-#   max = nil
-# i = 0
-#   while i <
-# end
+# Time complexity: O(n)
+# Space complexity: O(1)
+def find_largest(array, length)
+  max = array[0]
+  i = 1
+  while array[i] != nil
+    if array[i] > max
+      max = array[i]
+      i += 1
+    else
+      i += 1
+    end
+  end
+  return max
+end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def find_smallest(array, length)
-  raise NotImplementedError
+  min = array[0]
+  i = 1
+  while array[i] != nil
+    if array[i] < min
+      min = array[i]
+      i += 1
+    else
+      i += 1
+    end
+  end
+  return min
 end
+
 
 # Reverses the values in the integer array in place
 # Time complexity: ?
