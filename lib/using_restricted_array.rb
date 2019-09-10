@@ -1,4 +1,5 @@
 require_relative 'restricted_array.rb'
+
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
@@ -6,41 +7,69 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) runs array.lenght times
+# Space complexity: O(1) doesn't create extra data to take up space
 def length(array)
-  raise NotImplementedError
-end
+  i = 0
+  until array[i] == nil
+    i += 1
+  end
+  return i
+end 
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) runs array.lenght times
+# Space complexity: O(1) doesn't create extra data to take up space
 def print_array(array)
-  raise NotImplementedError
+  i = 0
+  until array[i] == nil
+    print array[i]
+    i += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) runs array.lenght times
+# Space complexity: O(1) doesn't create extra data to take up space
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  if length == 0
+    return false
+  end
+  length.times do |i|
+    if array[i] == value_to_find
+      return true
+    end 
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) runs array.lenght times
+# Space complexity: O(1) doesn't create extra data to take up space
 def find_largest(array, length)
-  raise NotImplementedError
+  max = array[0]
+  length.times do |i|
+    if array[i] > max
+      max = array[i]
+    end
+  end 
+  return max
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) runs array.lenght times
+# Space complexity: O(1) doesn't create extra data to take up space
 def find_smallest(array, length)
-  raise NotImplementedError
+  min = array[0]
+  length.times do |i|
+    if array[i] < min
+      minimum == array[i]
+    end
+  end
+  return min
 end
 
 # Reverses the values in the integer array in place
