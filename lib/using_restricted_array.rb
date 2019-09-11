@@ -28,6 +28,9 @@ def print_array(array)
   end
 end
 
+# array = [1, 2, 3, nil]
+# print_array(array)
+
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 # Time complexity: O(n) runs array.lenght times
@@ -40,6 +43,7 @@ def search(array, length, value_to_find)
   end
   return false
 end
+
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
@@ -60,13 +64,13 @@ end
 # Time complexity: O(n) runs array.lenght times
 # Space complexity: O(1) doesn't create extra data to take up space
 def find_smallest(array, length)
-  min = array[0]
+  minimum = array[0]
   length.times do |i|
-    if array[i] < min
-      minimum == array[i]
+    if array[i] < minimum
+      minimum = array[i]
     end
-  end
-  return min
+  end 
+  return minimum
 end
 
 # Reverses the values in the integer array in place
@@ -89,11 +93,28 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) runs array.lenght times
+# Space complexity: O(1) doesn't create extra data to take up space
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
-end
+  low = 0
+  high = length - 1
+  
+  while low < high
+    mid = (low + high)/2
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+      high = mid - 1
+    else 
+      low = mid + 1
+    end
+    
+    if array[low] == value_to_find
+      return true
+    end
+  end
+  return false
+end 
 
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
