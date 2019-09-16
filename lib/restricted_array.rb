@@ -16,7 +16,7 @@ class RestrictedArray
     # not be accessible by consumers of RestrictedArray. Encapsulation allows us
     # to change internal workings later, without impacting other consumers of
     # this class.
-    @internal_array = Array.new(@array_size){ |index| index + rand(1..200)}
+    @internal_array = Array.new(@array_size){ |index| index + rand(1..200) }
   end
 
   # Given the index 'key', returns the value at that index in the restricted array
