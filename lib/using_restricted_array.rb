@@ -6,8 +6,8 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: Oofn bc array size isnt changing
-# Space complexity: Oof1 bc array isnt doing anything additional
+# Time complexity: Oofn linear bc array size isnt changing
+# Space complexity: Oof1 constant bc array isnt doing anything additional
 def length(array)
   i = 0
   while array[i] != nil
@@ -17,8 +17,8 @@ def length(array)
 end
 
 # Prints each integer values in the array
-# Time complexity: Oofn bc all elements in array are only looked at once
-# Space complexity: Oof
+# Time complexity: Oofn linear bc all elements in array are only looked at once
+# Space complexity: Oof1 constant bc were only looking at the counter i
 def print_array(array)
   i = 0
   while array[i] != nil
@@ -28,20 +28,21 @@ def print_array(array)
   
   # For an unsorted array, searches for 'value_to_find'.
   # Returns true if found, false otherwise.
-  # Time complexity: ?
-  # Space complexity: ?
+  # Time complexity: OofN linear bc the loop only goes the length
+  # Space complexity: Oof1 constant bc it onky returns true or false
   def search(array, length, value_to_find)
     length.times do |i|
       if array[i] == value_to_find
         return true
       end
+    else i += 1
     end
   end
   
   # Finds and returns the largest integer value the array
   # Assumes that the array is not sorted.
-  # Time complexity: ?
-  # Space complexity: ?
+  # Time complexity: OofN linear/while loop only goes the length of the array
+  # Space complexity: Oof1 constant bc were only returning the single largest
   def find_largest(array, length)
     kaboom = 999
     i = 0
@@ -56,8 +57,8 @@ def print_array(array)
     
     # Finds and returns the smallest integer value in the array
     # Assumes that the array is not sorted.
-    # Time complexity: ?
-    # Space complexity: ?
+    # Time complexity: OofN linear bc the loop only goes the length of the array
+    # Space complexity: Oof1 bc size(memory) isnt changing [smallest, i]
     def find_smallest(array, length)
       i = 0
       smallest = array[i]
@@ -71,7 +72,7 @@ def print_array(array)
       
       # Reverses the values in the integer array in place
       # Time complexity: OofN - n is number of elements in array
-      # Space complexity: Oof1
+      # Space complexity: Oof1 constant bc array size isnt changing
       def reverse(array, length)
         low = 0
         high = length - 1
@@ -89,8 +90,8 @@ def print_array(array)
       
       # For an array sorted in ascending order, searches for 'value_to_find'.
       # Returns true if found, false otherwise.
-      # Time complexity: #binary search/ OofLogN
-      # Space complexity: Oof1
+      # Time complexity: #binary search/ OofLogN always bc binary. 
+      # Space complexity: Oof1 bc size isnt changing
       def binary_search(array, length, value_to_find)
         low = 0
         high = array.length - 1
