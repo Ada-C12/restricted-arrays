@@ -11,14 +11,14 @@ class RestrictedArray
     else # more than one argument passed - throw exception
       raise ArgumentError.new("More than 1 arguments passed. Expected 0 or 1 argument.")
     end
-
+    
     # Composition used instead of Inheritance. Other methods of Array class will
     # not be accessible by consumers of RestrictedArray. Encapsulation allows us
     # to change internal workings later, without impacting other consumers of
     # this class.
     @internal_array = Array.new(@array_size){ |index| index + rand(1..200)}
   end
-
+  
   # Given the index 'key', returns the value at that index in the restricted array
   def [](key)
     if key >= 0 && key < @array_size
@@ -27,7 +27,7 @@ class RestrictedArray
       return nil
     end
   end
-
+  
   # Updates the value at the specified index 'key'
   def []=(key, value)
     if key >= 0 && key < @array_size
