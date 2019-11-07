@@ -112,21 +112,21 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O of log n with n as the length of the array because we're halving n with each step
+# Space complexity: constant because we are reassigning values to the same three variables
 def binary_search(array, length, value_to_find)
   low = 0
   j = length - 1
-  high = array[j]
+  high = j
   while low <= high
     mid = low + ((high - low) / 2)
-    if value_to_find == mid
+    if value_to_find == array[mid]
       return true
-    elsif value_to_find == high
+    elsif value_to_find == array[high]
       return true
-    elsif value_to_find == low
+    elsif value_to_find == array[low]
       return true
-    elsif value_to_find > mid
+    elsif value_to_find > array[mid]
       high = mid - 1
     else
       low = mid + 1
