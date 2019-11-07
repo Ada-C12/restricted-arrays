@@ -22,9 +22,7 @@ def length(array)
   return length
 end
 
-
-
-# Prints each integer values in the array
+# Prints each integer value in the array
 # Time complexity: linear
 # Space complexity: constant
 def print_array(array)
@@ -57,33 +55,84 @@ end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: linear
+# Space complexity: constant
 def find_largest(array, length)
-  raise NotImplementedError
+  largest = 0
+  i = 1 
+  while array[i] != nil
+    if array[i] > largest
+      largest = array[i]
+      i += 1
+    else 
+      i += 1
+    end
+  end
+  return largest
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: linear
+# Space complexity: constant
 def find_smallest(array, length)
-  raise NotImplementedError
+  if length == 0
+    return nil
+  else
+    smallest = array[0]
+    i = 1 
+    while array[i] != nil
+      if array[i] < smallest
+        smallest = array[i]
+        i += 1
+      else 
+        i += 1
+      end
+    end
+    return smallest
+  end
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O (log n) -- because worst case scenario, if we double the length of the array, we're only perfoming one more operation
+# Space complexity: constant
 def reverse(array, length)
-  raise NotImplementedError
+  i = 1
+  j = length - 1
+  while i < j
+    reversed = array[i]
+    array[i] = array[j]
+    array[j] = reversed
+    i += 1
+    j -= 1
+  end
+  return reversed
 end
+
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 # Time complexity: ?
 # Space complexity: ?
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  low = 0
+  j = length - 1
+  high = array[j]
+  while low <= high
+    mid = low + ((high - low) / 2)
+    if value_to_find == mid
+      return true
+    elsif value_to_find == high
+      return true
+    elsif value_to_find == low
+      return true
+    elsif value_to_find > mid
+      high = mid - 1
+    else
+      low = mid + 1
+    end
+    return false
+  end
 end
 
 # Helper method provided to sort the array in ascending order
@@ -100,6 +149,7 @@ end
 # This is O(n^2) in Big O terms.
 # Space complexity = constant or O(1) since the additional storage needed,
 # does not depend on input array size.
+
 def sort(array, length)
   length.times do |index| # outer loop - n elements
     min_index = index # assume index is where the next minimally value is
@@ -116,6 +166,6 @@ def sort(array, length)
       array[index] = temp
     end
   end
-
 end
+
 ## --- END OF METHODS ---
