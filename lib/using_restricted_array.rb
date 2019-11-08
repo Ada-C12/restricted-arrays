@@ -58,7 +58,12 @@ end
 # Time complexity: linear
 # Space complexity: constant
 def find_largest(array, length)
-  largest = 0
+  # this method works in irb but it doesn't pass the test
+  if length == 0
+    return nil
+  end
+  
+  largest = array[0]
   i = 1 
   while array[i] != nil
     if array[i] > largest
@@ -76,29 +81,37 @@ end
 # Time complexity: linear
 # Space complexity: constant
 def find_smallest(array, length)
+
   if length == 0
     return nil
-  else
-    smallest = array[0]
-    i = 1 
-    while array[i] != nil
-      if array[i] < smallest
-        smallest = array[i]
-        i += 1
-      else 
-        i += 1
-      end
-    end
-    return smallest
   end
+  
+  smallest = array[0]
+  i = 1 
+  while array[i] != nil
+    if array[i] < smallest
+      smallest = array[i]
+      i += 1
+    else 
+      i += 1
+    end
+  end
+  return smallest
 end
 
 # Reverses the values in the integer array in place
 # Time complexity: O (log n) -- because worst case scenario, if we double the length of the array, we're only perfoming one more operation
 # Space complexity: constant
 def reverse(array, length)
-  i = 1
+  if length == 0
+    return nil
+  elsif length == 1
+    return array
+  end
+  
+  i = 0
   j = length - 1
+
   while i < j
     reversed = array[i]
     array[i] = array[j]
