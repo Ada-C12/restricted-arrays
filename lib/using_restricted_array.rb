@@ -41,19 +41,14 @@ end
 # Space complexity: O(1)
 def search(array, length, value_to_find)
   n = 0
-  found = 0
   while n < length
     if value_to_find == array[n]
       return true
-      found += 1
     end
     n += 1
   end
 
-  if found == 0
-    return false
-  end
-  
+  return false
 end
 
 # Finds and returns the largest integer value the array
@@ -98,7 +93,7 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: O(n)
+# Time complexity: O(n) **O(N/2)
 # Space complexity: O(1)
 def reverse(array, length)
   if length <= 1
@@ -119,7 +114,7 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: O(logn)
+# Time complexity: O(log n)
 # Space complexity: O(1)
 def binary_search(array, length, value_to_find)
   if length == 0
@@ -127,12 +122,10 @@ def binary_search(array, length, value_to_find)
   else
     low = 0
     high = length - 1
-    found = 0
     while low <= high
       mid = (low + high)/2
       if array[mid] == value_to_find
         return true
-        found += 1
       elsif array[mid] > value_to_find
         high = mid - 1
       else 
@@ -140,10 +133,7 @@ def binary_search(array, length, value_to_find)
       end
     end
     
-    if found == 0 
-      return false
-    end
-
+    return false
   end
 end
 
