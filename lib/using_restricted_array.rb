@@ -93,7 +93,7 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: O(n) **O(N/2)
+# Time complexity: O(n)
 # Space complexity: O(1)
 def reverse(array, length)
   if length <= 1
@@ -114,7 +114,7 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: O(log n)
+# Time complexity: O(logn)
 # Space complexity: O(1)
 def binary_search(array, length, value_to_find)
   if length == 0
